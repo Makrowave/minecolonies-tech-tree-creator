@@ -1,29 +1,29 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar, { type AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import {ListItemIcon, Select} from "@mui/material";
+import {ListItemIcon} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import Project from "../project/Project.tsx";
+import {useSelector} from "react-redux";
+import type {RootState} from "../../stores/Store.ts";
+import AppBar from "./AppBar.tsx";
 
 const drawerWidth = 240;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
+const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
   open?: boolean;
-}>(({ theme }) => ({
+}>(({theme}) => ({
   flexGrow: 1,
   display: 'flex',
   flex: 1,
@@ -36,7 +36,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   marginLeft: `-${drawerWidth}px`,
   variants: [
     {
-      props: ({ open }) => open,
+      props: ({open}) => open,
       style: {
         transition: theme.transitions.create('margin', {
           easing: theme.transitions.easing.easeOut,
@@ -48,33 +48,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   ],
 }));
 
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  variants: [
-    {
-      props: ({ open }) => open,
-      style: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-        transition: theme.transitions.create(['margin', 'width'], {
-          easing: theme.transitions.easing.easeOut,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-    },
-  ],
-}));
-
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({theme}) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
@@ -86,45 +60,19 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function AppDrawerLayout() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const projects = useSelector((state: RootState) => state.projectList);
 
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
   return (
-    <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                mr: 2,
-              },
-              open && { display: 'none' },
-            ]}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Persistent drawer
-          </Typography>
-          <Box sx={{flexGrow: 1}} />
-          <Box>
-            <Select>
-              
-            </Select>
-          </Box>
-        </Toolbar>
-      </AppBar>
+    <Box sx={{display: 'flex', width: '100%', height: '100%'}}>
+      <CssBaseline/>
+      <AppBar open={open} handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth}/>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -141,34 +89,34 @@ export default function AppDrawerLayout() {
         <DrawerHeader>
           <Typography sx={{marginRight: "auto"}} variant={"h6"}>Projects</Typography>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        <Divider/>
         <List>
-          {['Project 1', 'Project 2', 'Project 3'].map((text) => (
-            <ListItem key={text} disablePadding>
+          {projects.map((project) => (
+            <ListItem key={project.id} disablePadding>
               <ListItemButton>
-                <ListItemText primary={text} />
+                <ListItemText primary={project.name}/>
               </ListItemButton>
             </ListItem>
           ))}
         </List>
-        <Divider />
+        <Divider/>
         <List>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemText primary={"Create new"} />
+              <ListItemText primary={"Create new"}/>
               <ListItemIcon>
-                <AddIcon />
+                <AddIcon/>
               </ListItemIcon>
             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
       <Main open={open}>
-        <DrawerHeader />
-        <Project />
+        <DrawerHeader/>
+        <Project/>
       </Main>
     </Box>
   );

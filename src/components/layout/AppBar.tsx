@@ -1,0 +1,148 @@
+import MuiAppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import {useDispatch, useSelector} from "react-redux";
+import type {RootState} from "../../stores/Store.ts";
+import {useMemo} from "react";
+import {changeLocalization, changeNamespace} from "../../stores/ActiveDisplaySlice.ts";
+import {MenuItem} from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
+import {colors} from "../../const.ts";
+import LocalizationModal from "../../modal/LocalizationModal.tsx";
+import type {Localization} from "../project/Project.tsx";
+import ExpandableMenu from "./ExpandableMenu.tsx";
+import NamespaceModal from "../../modal/NamespaceModal.tsx";
+import BranchModal from "../../modal/BranchModal.tsx";
+
+type DrawerAppBarProps = {
+  open: boolean;
+  handleDrawerOpen: () => void;
+  drawerWidth: number;
+}
+
+/**
+ *
+ * @param open - Is drawer used next to bar open, for resizing
+ * @param handleDrawerOpen - Function to open drawer
+ * @param drawerWidth - Width of drawer
+ * @constructor
+ */
+export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppBarProps) {
+
+  const activeProject = useSelector((state: RootState) => state.activeProject);
+  const project = useSelector((state: RootState) => state.project);
+  const localizationsUsed = useMemo(() => project?.localizations ? project.localizations : [], [project?.localizations]);
+
+  const dispatch = useDispatch();
+
+  const handleLanguageMenuClick = (localization: Localization) => {
+    dispatch(changeLocalization(localization));
+  }
+  const handleNamespaceMenuClick = (namespace: string | null) => {
+    dispatch(changeNamespace(namespace))
+  }
+
+
+  return (
+    <MuiAppBar
+      position="fixed"
+      sx={{
+        bgcolor: colors.purple,
+        transition: (theme) =>
+          theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+        ...(open && {
+          width: `calc(100% - ${drawerWidth}px)`,
+          marginLeft: `${drawerWidth}px`,
+          transition: (theme) =>
+            theme.transitions.create(['margin', 'width'], {
+              easing: theme.transitions.easing.easeOut,
+              duration: theme.transitions.duration.enteringScreen,
+            }),
+        }),
+      }}
+    >
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          sx={{
+            mr: 2,
+            ...(open && {display: 'none'}),
+          }}
+        >
+          <MenuIcon/>
+        </IconButton>
+        <Typography variant="h6" noWrap component="div">
+          {activeProject.currentProject?.name ?? "New project"}
+        </Typography>
+        <Box sx={{flexGrow: 1}}/>
+        <Box sx={{display: "flex", alignItems: "center"}}>
+          <IconButton
+            color="inherit"
+          >
+            <SaveIcon/>
+          </IconButton>
+          <ExpandableMenu
+            primary={"Namespace"}
+            secondary={activeProject.currentNamespace ?? "No namespace selected"}
+            modal={<NamespaceModal/>}
+          >
+            {project?.namespaces.map((namespace) => (
+              <MenuItem
+                key={namespace.name}
+                selected={activeProject.currentNamespace === namespace.name}
+                onClick={() => {
+                  handleNamespaceMenuClick(namespace.name)
+                }}
+              >
+                {namespace.name}
+              </MenuItem>
+            ))}
+          </ExpandableMenu>
+          <ExpandableMenu
+            primary={"Language"}
+            secondary={activeProject.currentLocalization?.name ?? "No localization selected"}
+            modal={<LocalizationModal usedLanguages={localizationsUsed}/>}
+          >
+            {project?.localizations.map((localization) => (
+              <MenuItem
+                key={localization.id}
+                selected={activeProject.currentNamespace === localization.id}
+                onClick={() => {
+                  handleLanguageMenuClick(localization)
+                }}
+              >
+                {localization.name}
+              </MenuItem>
+            ))}
+          </ExpandableMenu>
+          <ExpandableMenu
+            primary={"Branch"}
+            secondary={activeProject.currentBranch ?? "No branch selected"}
+            modal={<BranchModal/>}
+          >
+            {/*{project?.branches.map((branch) => (*/}
+            {/*  <MenuItem*/}
+            {/*    key={branch}*/}
+            {/*    selected={activeProject.currentBranch === branch}*/}
+            {/*    onClick={() => {*/}
+            {/*      handleNamespaceMenuClick(namespace.name)*/}
+            {/*    }}*/}
+            {/*  >*/}
+            {/*    {namespace.name}*/}
+            {/*  </MenuItem>*/}
+            {/*))}*/}
+          </ExpandableMenu>
+        </Box>
+      </Toolbar>
+    </MuiAppBar>
+  );
+}

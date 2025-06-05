@@ -135,3 +135,7 @@ export const localizations: Localization[] = [
   { id: "zh_tw", name: "Traditional Chinese - 繁體中文 (台灣)" },
   { id: "zu_za", name: "Zulu - isiZulu (iNingizimu Afrika)" }
 ]
+
+export const colors = {
+  purple: "#a434eb"
+}

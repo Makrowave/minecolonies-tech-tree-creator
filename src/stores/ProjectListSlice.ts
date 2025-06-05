@@ -1,8 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type {Project} from "../components/project/Project.tsx";
+import {createSlice} from "@reduxjs/toolkit";
+import type {ProjectType} from "../components/project/Project.tsx";
+import {sampleProjects} from "../data/projects.ts";
 
 
-const initialState: Project[] = [];
+const initialState: ProjectType[] = sampleProjects;
+
+export interface ProjectListState {
+  projectList: ProjectType[];
+}
 
 const projectListSlice = createSlice({
   name: "projectList",
@@ -18,5 +23,5 @@ const projectListSlice = createSlice({
 })
 
 
-export const { addProject, deleteProject } = projectListSlice.actions;
+export const {addProject, deleteProject} = projectListSlice.actions;
 export default projectListSlice.reducer;
