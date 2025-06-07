@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -20,6 +19,7 @@ import type {RootState} from "../../stores/Store.ts";
 import AppBar from "./AppBar.tsx";
 import {switchProject} from "../../stores/ProjectSlice.ts";
 import {changeProject} from "../../stores/ActiveDisplaySlice.ts";
+import {useState} from "react";
 
 const drawerWidth = 240;
 
@@ -65,7 +65,7 @@ const DrawerHeader = styled('div')(({theme}) => ({
 
 export default function AppDrawerLayout() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const projects = useSelector((state: RootState) => state.projectList);
 
   const handleDrawerOpen = () => {
@@ -81,10 +81,12 @@ export default function AppDrawerLayout() {
     dispatch(changeProject(project))
   }
 
+  const [currentEditor, setCurrentEditor] = useState<"technology" | "localization" | "effect">("technology");
+
   return (
     <Box sx={{display: 'flex', width: '100%', height: '100vh'}}>
       <CssBaseline/>
-      <AppBar open={open} handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth}/>
+      <AppBar open={open} handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth} currentEditor={currentEditor} setCurrentEditor={setCurrentEditor}/>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -128,7 +130,7 @@ export default function AppDrawerLayout() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader/>
-        <Project/>
+        <Project currentEditor={currentEditor}/>
       </Main>
     </Box>
   );

@@ -56,6 +56,18 @@ const projectSlice = createSlice({
         localizations: state.localizations.filter((localization) => localization.id !== action.payload),
       };
     },
+
+    addLocalizationKey: (state, action) => {
+      const { key, value, localizationId } = action.payload;
+      const localization = state.localizations.find((l) => l.id === localizationId);
+      if (localization) {
+        localization.keys[key] = value;
+      } else {
+        console.warn(`Localization with ID ${localizationId} not found.`);
+      }
+    },
+
+
     moveToNamespace: (state, action) => {
       const {
         fromNamespaceName,
@@ -94,6 +106,7 @@ export const {
   deleteBranch,
   addLocalization,
   deleteLocalization,
-  moveToNamespace
+  moveToNamespace,
+  addLocalizationKey
 } = projectSlice.actions;
 export default projectSlice.reducer;

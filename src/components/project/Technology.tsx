@@ -1,6 +1,8 @@
 import {Paper, Typography} from "@mui/material";
 import {colors} from "../../const.ts";
 import {forwardRef} from "react";
+import {useSelector} from "react-redux";
+import type {RootState} from "../../stores/Store.ts";
 
 
 export interface TechnologyType {
@@ -59,10 +61,19 @@ type TechnologyProps = {
 
 const Technology = forwardRef<HTMLDivElement, TechnologyProps>(
   ({technology}, ref) => {
+
+
+    const project = useSelector((state: RootState) => state.project)
+    const activeProject = useSelector((state: RootState) => state.activeProject)
+
+    const localization = project.localizations.find((loc) => loc.id === activeProject.currentLocalization?.id);
+    console.log(localization?.keys[technology.name])
+    console.log(technology.name)
+
     return (
       <Paper ref={ref} sx={{bgcolor: colors.background, p: 1, height: "150px", width: "400px"}} elevation={5}>
-        <Typography>{technology.name}</Typography>
-        <Typography>{technology.subtitle ?? ""}</Typography>
+        <Typography>{localization?.keys[technology.name] ?? technology.name}</Typography>
+        <Typography>{localization?.keys[technology.subtitle ?? ""] ?? technology.subtitle ?? ""}</Typography>
         <Typography>Effects:</Typography>
       </Paper>
     )

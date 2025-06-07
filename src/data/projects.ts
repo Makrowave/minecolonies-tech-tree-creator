@@ -1,5 +1,5 @@
 import type {ProjectType} from "../components/project/Project.tsx";
-// import {localizations as loc} from "../const.ts";
+import {defaultFullEnUs, localizations as loc} from "../const.ts";
 
 
 export const sampleProjects: ProjectType[] = [
@@ -34,7 +34,7 @@ export const sampleProjects: ProjectType[] = [
             name: "civilian",
             technologies: [
               {
-                "name": "com.minecolonies.research.technology.academic.name",
+                "name": "com.minecolonies.research.civilian.academic.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -54,7 +54,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.academic.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.agile.name",
+                "name": "com.minecolonies.research.civilian.agile.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -81,7 +81,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.agile.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.air.name",
+                "name": "com.minecolonies.research.civilian.air.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -101,7 +101,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 1
               },
               {
-                "name": "com.minecolonies.research.technology.ambition.name",
+                "name": "com.minecolonies.research.civilian.ambition.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -120,7 +120,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 5
               },
               {
-                "name": "com.minecolonies.research.technology.athlete.name",
+                "name": "com.minecolonies.research.civilian.athlete.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -140,7 +140,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.athlete.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.bachelor.name",
+                "name": "com.minecolonies.research.civilian.bachelor.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -167,7 +167,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.bachelor.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.bandages.name",
+                "name": "com.minecolonies.research.civilian.bandages.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -193,7 +193,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.bandaid.name",
+                "name": "com.minecolonies.research.civilian.bandaid.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -219,7 +219,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 2
               },
               {
-                "name": "com.minecolonies.research.technology.beanstalk.name",
+                "name": "com.minecolonies.research.civilian.beanstalk.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -239,7 +239,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.beanstalk.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.bookworm.name",
+                "name": "com.minecolonies.research.civilian.bookworm.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -266,7 +266,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.bookworm.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.cast.name",
+                "name": "com.minecolonies.research.civilian.cast.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -285,7 +285,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.circus.name",
+                "name": "com.minecolonies.research.civilian.circus.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -312,7 +312,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.city.name",
+                "name": "com.minecolonies.research.civilian.city.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -338,7 +338,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.compress.name",
+                "name": "com.minecolonies.research.civilian.compress.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -364,7 +364,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.diligent.name",
+                "name": "com.minecolonies.research.civilian.diligent.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -391,7 +391,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.epicure.name",
+                "name": "com.minecolonies.research.civilian.epicure.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -417,7 +417,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.festival.name",
+                "name": "com.minecolonies.research.civilian.festival.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -444,7 +444,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.festival.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.firstaid.name",
+                "name": "com.minecolonies.research.civilian.firstaid.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -471,7 +471,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.firstaid.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.firstaid2.name",
+                "name": "com.minecolonies.research.civilian.firstaid2.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -498,7 +498,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.firstaid2.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.fortitude.name",
+                "name": "com.minecolonies.research.civilian.fortitude.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -524,7 +524,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.glutton.name",
+                "name": "com.minecolonies.research.civilian.glutton.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -544,7 +544,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.glutton.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.gorger.name",
+                "name": "com.minecolonies.research.civilian.gorger.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -571,7 +571,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.gorger.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.gourmand.name",
+                "name": "com.minecolonies.research.civilian.gourmand.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -598,7 +598,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 3
               },
               {
-                "name": "com.minecolonies.research.technology.gravedecaybonus1.name",
+                "name": "com.minecolonies.research.civilian.gravedecaybonus1.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -626,7 +626,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.gravedecaybonus1.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.gravedecaybonus2.name",
+                "name": "com.minecolonies.research.civilian.gravedecaybonus2.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -654,7 +654,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.gravedecaybonus2.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.growth.name",
+                "name": "com.minecolonies.research.civilian.growth.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -680,7 +680,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.guardianangel.name",
+                "name": "com.minecolonies.research.civilian.guardianangel.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -706,7 +706,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.guardianangel2.name",
+                "name": "com.minecolonies.research.civilian.guardianangel2.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -725,7 +725,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.hamlet.name",
+                "name": "com.minecolonies.research.civilian.hamlet.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -751,7 +751,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.haste.name",
+                "name": "com.minecolonies.research.civilian.haste.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -779,7 +779,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.haste.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.healingcream.name",
+                "name": "com.minecolonies.research.civilian.healingcream.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -806,7 +806,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.healingcream.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.higherlearning.name",
+                "name": "com.minecolonies.research.civilian.higherlearning.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -834,7 +834,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.higherlearning.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.hormones.name",
+                "name": "com.minecolonies.research.civilian.hormones.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -861,7 +861,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.hormones.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.indefatigability.name",
+                "name": "com.minecolonies.research.civilian.indefatigability.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -880,7 +880,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.keen.name",
+                "name": "com.minecolonies.research.civilian.keen.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -906,7 +906,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.lifesaver.name",
+                "name": "com.minecolonies.research.civilian.lifesaver.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -932,7 +932,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.lifesaver2.name",
+                "name": "com.minecolonies.research.civilian.lifesaver2.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -958,7 +958,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.masks.name",
+                "name": "com.minecolonies.research.civilian.masks.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -985,7 +985,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.masks.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.master.name",
+                "name": "com.minecolonies.research.civilian.master.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1012,7 +1012,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.master.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.moq.name",
+                "name": "com.minecolonies.research.civilian.moq.name",
                 "branch": "minecolonies:technology",
                 "costs": [
                   {
@@ -1044,7 +1044,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.moq.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.morebooks.name",
+                "name": "com.minecolonies.research.civilian.morebooks.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1071,7 +1071,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.morebooks.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.nightowl.name",
+                "name": "com.minecolonies.research.civilian.nightowl.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1099,7 +1099,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.nightowl.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.nightowl2.name",
+                "name": "com.minecolonies.research.civilian.nightowl2.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1127,7 +1127,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.nightowl2.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.nimble.name",
+                "name": "com.minecolonies.research.civilian.nimble.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1155,7 +1155,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.nimble.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.nurture.name",
+                "name": "com.minecolonies.research.civilian.nurture.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1183,7 +1183,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.nurture.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.opera.name",
+                "name": "com.minecolonies.research.civilian.opera.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1210,7 +1210,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.opera.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.outpost.name",
+                "name": "com.minecolonies.research.civilian.outpost.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1236,7 +1236,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 2
               },
               {
-                "name": "com.minecolonies.research.technology.phd.name",
+                "name": "com.minecolonies.research.civilian.phd.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1256,7 +1256,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.phd.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.puberty.name",
+                "name": "com.minecolonies.research.civilian.puberty.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1283,7 +1283,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.puberty.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.rails.name",
+                "name": "com.minecolonies.research.civilian.rails.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1311,7 +1311,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.rails.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.raisingthedead.name",
+                "name": "com.minecolonies.research.civilian.raisingthedead.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1339,7 +1339,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.raisingthedead.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.reflective.name",
+                "name": "com.minecolonies.research.civilian.reflective.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1366,7 +1366,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.reflective.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.remembrance.name",
+                "name": "com.minecolonies.research.civilian.remembrance.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1393,7 +1393,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.remembrance.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.resilience.name",
+                "name": "com.minecolonies.research.civilian.resilience.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1419,7 +1419,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.resistance.name",
+                "name": "com.minecolonies.research.civilian.resistance.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1446,7 +1446,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.resurrectchance1.name",
+                "name": "com.minecolonies.research.civilian.resurrectchance1.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1474,7 +1474,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.resurrectchance1.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.resurrectchance2.name",
+                "name": "com.minecolonies.research.civilian.resurrectchance2.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1502,7 +1502,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.resurrectchance2.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.scholarly.name",
+                "name": "com.minecolonies.research.civilian.scholarly.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1529,7 +1529,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.scholarly.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.spectacle.name",
+                "name": "com.minecolonies.research.civilian.spectacle.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1555,7 +1555,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.stamina.name",
+                "name": "com.minecolonies.research.civilian.stamina.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1574,7 +1574,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 1
               },
               {
-                "name": "com.minecolonies.research.technology.studious.name",
+                "name": "com.minecolonies.research.civilian.studious.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1600,7 +1600,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.stuffer.name",
+                "name": "com.minecolonies.research.civilian.stuffer.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1626,7 +1626,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.swift.name",
+                "name": "com.minecolonies.research.civilian.swift.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1653,7 +1653,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.swift.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.theater.name",
+                "name": "com.minecolonies.research.civilian.theater.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1673,7 +1673,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.theater.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.undertakeremergency.name",
+                "name": "com.minecolonies.research.civilian.undertakeremergency.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1700,7 +1700,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 3
               },
               {
-                "name": "com.minecolonies.research.technology.vaccines.name",
+                "name": "com.minecolonies.research.civilian.vaccines.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1727,7 +1727,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.vaccines.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.village.name",
+                "name": "com.minecolonies.research.civilian.village.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1753,7 +1753,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.vines.name",
+                "name": "com.minecolonies.research.civilian.vines.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1781,7 +1781,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.civilian.vines.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.vitality.name",
+                "name": "com.minecolonies.research.civilian.vitality.name",
                 "branch": "minecolonies:civilian",
                 "costs": [
                   {
@@ -1812,7 +1812,7 @@ export const sampleProjects: ProjectType[] = [
             name: "combat",
             technologies: [
               {
-                "name": "com.minecolonies.research.technology.accuracy.name",
+                "name": "com.minecolonies.research.combat.accuracy.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1838,7 +1838,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 1
               },
               {
-                "name": "com.minecolonies.research.technology.agilearcher.name",
+                "name": "com.minecolonies.research.combat.agilearcher.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1858,7 +1858,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.agilearcher.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.arrowpierce.name",
+                "name": "com.minecolonies.research.combat.arrowpierce.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1888,7 +1888,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.arrowuse.name",
+                "name": "com.minecolonies.research.combat.arrowuse.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1915,7 +1915,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.arrowuse.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.avoid.name",
+                "name": "com.minecolonies.research.combat.avoid.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1942,7 +1942,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.avoidance.name",
+                "name": "com.minecolonies.research.combat.avoidance.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1969,7 +1969,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 3
               },
               {
-                "name": "com.minecolonies.research.technology.boiledleather.name",
+                "name": "com.minecolonies.research.combat.boiledleather.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -1996,7 +1996,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.boiledleather.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.captainoftheguard.name",
+                "name": "com.minecolonies.research.combat.captainoftheguard.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2015,7 +2015,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.captaintraining.name",
+                "name": "com.minecolonies.research.combat.captaintraining.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2041,7 +2041,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.cleave.name",
+                "name": "com.minecolonies.research.combat.cleave.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2067,7 +2067,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.coffee.name",
+                "name": "com.minecolonies.research.combat.coffee.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2087,7 +2087,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.coffee.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.deadlyaim.name",
+                "name": "com.minecolonies.research.combat.deadlyaim.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2107,7 +2107,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.deadlyaim.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.diamondskin.name",
+                "name": "com.minecolonies.research.combat.diamondskin.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2126,7 +2126,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.dodge.name",
+                "name": "com.minecolonies.research.combat.dodge.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2154,7 +2154,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.dodge.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.druidpotion.name",
+                "name": "com.minecolonies.research.combat.druidpotion.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2180,7 +2180,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.duelist.name",
+                "name": "com.minecolonies.research.combat.duelist.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2206,7 +2206,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.evade.name",
+                "name": "com.minecolonies.research.combat.evade.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2232,7 +2232,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.evasion.name",
+                "name": "com.minecolonies.research.combat.evasion.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2259,7 +2259,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.evasion.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.fear.name",
+                "name": "com.minecolonies.research.combat.fear.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2285,7 +2285,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.feint.name",
+                "name": "com.minecolonies.research.combat.feint.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2311,7 +2311,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.flee.name",
+                "name": "com.minecolonies.research.combat.flee.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2338,7 +2338,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.flee.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.fullretreat.name",
+                "name": "com.minecolonies.research.combat.fullretreat.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2357,7 +2357,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.hotfoot.name",
+                "name": "com.minecolonies.research.combat.hotfoot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2376,7 +2376,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.improvedbows.name",
+                "name": "com.minecolonies.research.combat.improvedbows.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2404,7 +2404,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.improvedbows.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.improveddodge.name",
+                "name": "com.minecolonies.research.combat.improveddodge.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2431,7 +2431,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.improveddodge.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.improvedevasion.name",
+                "name": "com.minecolonies.research.combat.improvedevasion.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2458,7 +2458,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.improvedevasion.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.improvedleather.name",
+                "name": "com.minecolonies.research.combat.improvedleather.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2485,7 +2485,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.improvedleather.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.improvedswords.name",
+                "name": "com.minecolonies.research.combat.improvedswords.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2512,7 +2512,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.improvedswords.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.ironarmor.name",
+                "name": "com.minecolonies.research.combat.ironarmor.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2538,7 +2538,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.ironskin.name",
+                "name": "com.minecolonies.research.combat.ironskin.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2564,7 +2564,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.knighttraining.name",
+                "name": "com.minecolonies.research.combat.knighttraining.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2590,7 +2590,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.masterbowman.name",
+                "name": "com.minecolonies.research.combat.masterbowman.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2609,7 +2609,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.masterswordsman.name",
+                "name": "com.minecolonies.research.combat.masterswordsman.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2628,7 +2628,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.mightycleave.name",
+                "name": "com.minecolonies.research.combat.mightycleave.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2654,7 +2654,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.multishot.name",
+                "name": "com.minecolonies.research.combat.multishot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2681,7 +2681,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.multishot.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.parry.name",
+                "name": "com.minecolonies.research.combat.parry.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2707,7 +2707,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 2
               },
               {
-                "name": "com.minecolonies.research.technology.penetratingshot.name",
+                "name": "com.minecolonies.research.combat.penetratingshot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2733,7 +2733,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.piercingshot.name",
+                "name": "com.minecolonies.research.combat.piercingshot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2759,7 +2759,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.platearmor.name",
+                "name": "com.minecolonies.research.combat.platearmor.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2786,7 +2786,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.powerattack.name",
+                "name": "com.minecolonies.research.combat.powerattack.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2812,7 +2812,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.preciseshot.name",
+                "name": "com.minecolonies.research.combat.preciseshot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2839,7 +2839,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.provost.name",
+                "name": "com.minecolonies.research.combat.provost.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2865,7 +2865,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.quickdraw.name",
+                "name": "com.minecolonies.research.combat.quickdraw.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2891,7 +2891,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 2
               },
               {
-                "name": "com.minecolonies.research.technology.rapidshot.name",
+                "name": "com.minecolonies.research.combat.rapidshot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2918,7 +2918,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.rapidshot.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.regeneration.name",
+                "name": "com.minecolonies.research.combat.regeneration.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2946,7 +2946,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.retreat.name",
+                "name": "com.minecolonies.research.combat.retreat.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -2973,7 +2973,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.retreat.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.riposte.name",
+                "name": "com.minecolonies.research.combat.riposte.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3000,7 +3000,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.riposte.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.savagestrike.name",
+                "name": "com.minecolonies.research.combat.savagestrike.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3019,7 +3019,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 6
               },
               {
-                "name": "com.minecolonies.research.technology.squiretraining.name",
+                "name": "com.minecolonies.research.combat.squiretraining.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3046,7 +3046,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.squiretraining.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.standard.name",
+                "name": "com.minecolonies.research.combat.standard.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3072,7 +3072,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 5
               },
               {
-                "name": "com.minecolonies.research.technology.steelarmor.name",
+                "name": "com.minecolonies.research.combat.steelarmor.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3099,7 +3099,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 1
               },
               {
-                "name": "com.minecolonies.research.technology.tactictraining.name",
+                "name": "com.minecolonies.research.combat.tactictraining.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3125,7 +3125,7 @@ export const sampleProjects: ProjectType[] = [
                 "sortOrder": 2
               },
               {
-                "name": "com.minecolonies.research.technology.taunt.name",
+                "name": "com.minecolonies.research.combat.taunt.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3160,7 +3160,7 @@ export const sampleProjects: ProjectType[] = [
                 "subtitle": "com.minecolonies.research.combat.taunt.subtitle"
               },
               {
-                "name": "com.minecolonies.research.technology.telescope.name",
+                "name": "com.minecolonies.research.combat.telescope.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3186,7 +3186,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.trickshot.name",
+                "name": "com.minecolonies.research.combat.trickshot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3212,7 +3212,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.whirlwind.name",
+                "name": "com.minecolonies.research.combat.whirlwind.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -3246,7 +3246,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.woundingshot.name",
+                "name": "com.minecolonies.research.combat.woundingshot.name",
                 "branch": "minecolonies:combat",
                 "costs": [
                   {
@@ -5255,7 +5255,7 @@ export const sampleProjects: ProjectType[] = [
             name: "unlockable",
             technologies: [
               {
-                "name": "com.minecolonies.research.technology.diamondmesh.name",
+                "name": "com.minecolonies.research.unlockable.diamondmesh.name",
                 "autostart": true,
                 "branch": "minecolonies:unlockable",
                 "effects": [
@@ -5278,7 +5278,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 4
               },
               {
-                "name": "com.minecolonies.research.technology.flintmesh.name",
+                "name": "com.minecolonies.research.unlockable.flintmesh.name",
                 "autostart": true,
                 "branch": "minecolonies:unlockable",
                 "effects": [
@@ -5301,7 +5301,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 2
               },
               {
-                "name": "com.minecolonies.research.technology.ironmesh.name",
+                "name": "com.minecolonies.research.unlockable.ironmesh.name",
                 "autostart": true,
                 "branch": "minecolonies:unlockable",
                 "effects": [
@@ -5324,7 +5324,7 @@ export const sampleProjects: ProjectType[] = [
                 "researchLevel": 3
               },
               {
-                "name": "com.minecolonies.research.technology.stringmesh.name",
+                "name": "com.minecolonies.research.unlockable.stringmesh.name",
                 "autostart": true,
                 "branch": "minecolonies:unlockable",
                 "effects": [
@@ -5350,6 +5350,11 @@ export const sampleProjects: ProjectType[] = [
         ]
       }
     ],
-    localizations: [],
+    localizations: [
+      {
+        ...loc[26],
+        keys: defaultFullEnUs
+      }
+    ],
   }
 ]

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
 import type {RootState} from "../../stores/Store.ts";
-import {useMemo} from "react";
+import {type Dispatch, type SetStateAction, useMemo} from "react";
 import {changeBranch, changeLocalization, changeNamespace} from "../../stores/ActiveDisplaySlice.ts";
 import {MenuItem} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
@@ -21,6 +21,8 @@ type DrawerAppBarProps = {
   open: boolean;
   handleDrawerOpen: () => void;
   drawerWidth: number;
+  setCurrentEditor: Dispatch<SetStateAction<"technology" | "effect" | "localization">>;
+  currentEditor: "technology" | "effect" | "localization"
 }
 
 /**
@@ -30,7 +32,7 @@ type DrawerAppBarProps = {
  * @param drawerWidth - Width of drawer
  * @constructor
  */
-export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppBarProps) {
+export default function AppBar({open, handleDrawerOpen, drawerWidth, setCurrentEditor, currentEditor}: DrawerAppBarProps) {
 
   const activeProject = useSelector((state: RootState) => state.activeProject);
   const project = useSelector((state: RootState) => state.project);
@@ -46,6 +48,10 @@ export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppB
   }
   const handleBranchMenuClick = (branch: string | null) => {
     dispatch(changeBranch(branch))
+  }
+
+  const handleEditorChange = (value: "technology" | "effect" | "localization") => {
+    setCurrentEditor(value);
   }
 
 
@@ -83,9 +89,22 @@ export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppB
         >
           <MenuIcon/>
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          {activeProject.currentProject?.name ?? "New project"}
-        </Typography>
+        <Box sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+          <Typography variant="h6" noWrap component="div">
+            {activeProject.currentProject?.name ?? "New project"}
+          </Typography>
+          <ExpandableMenu primary={"Editor"} secondary={currentEditor} >
+            <MenuItem key={"effect"} onClick={() => handleEditorChange("effect")} selected={currentEditor === "effect"}>
+              Effect editor
+            </MenuItem>
+            <MenuItem key={"technology"} onClick={() => handleEditorChange("technology")} selected={currentEditor === "technology"}>
+              Research tree
+            </MenuItem>
+            <MenuItem key={"localization"} onClick={() => handleEditorChange("localization")} selected={currentEditor === "localization"}>
+              Localization editor
+            </MenuItem>
+          </ExpandableMenu>
+        </Box>
         <Box sx={{flexGrow: 1}}/>
         <Box sx={{display: "flex", alignItems: "center"}}>
           <IconButton
