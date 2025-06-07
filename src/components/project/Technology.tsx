@@ -1,8 +1,9 @@
 import {Paper, Typography} from "@mui/material";
 import {colors} from "../../const.ts";
+import {forwardRef} from "react";
 
 
-export interface Technology {
+export interface TechnologyType {
   name: string;
   branch: string;
   costs?: (ItemCost|TagCost)[];
@@ -53,17 +54,19 @@ interface MandatoryBuildingRequirement {
 
 
 type TechnologyProps = {
-  technology: Technology
+  technology: TechnologyType
 }
 
-export default function Technology ({technology}: TechnologyProps) {
+const Technology = forwardRef<HTMLDivElement, TechnologyProps>(
+  ({technology}, ref) => {
+    return (
+      <Paper ref={ref} sx={{bgcolor: colors.background, p: 1, height: "150px", width: "400px"}} elevation={5}>
+        <Typography>{technology.name}</Typography>
+        <Typography>{technology.subtitle ?? ""}</Typography>
+        <Typography>Effects:</Typography>
+      </Paper>
+    )
+  }
+)
 
-
-  return (
-    <Paper sx={{flex: 1, bgcolor: colors.background, p: 1}} elevation={5}>
-      <Typography>{technology.name}</Typography>
-      <Typography>{technology.subtitle ?? ""}</Typography>
-      <Typography>Effects:</Typography>
-    </Paper>
-  )
-}
+export default Technology

@@ -1,4 +1,4 @@
-import type {Technology} from "./Technology.tsx";
+import type {TechnologyType} from "./Technology.tsx";
 import Box from "@mui/material/Box";
 import TechnologyGrid from "./TechnologyGrid.tsx";
 import {useSelector} from "react-redux";
@@ -19,7 +19,7 @@ export interface Namespace {
 
 export interface Branch {
   name: string;
-  technologies: Technology[];
+  technologies: TechnologyType[];
 }
 
 export interface Localization {
