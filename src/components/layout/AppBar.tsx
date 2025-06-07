@@ -7,15 +7,15 @@ import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
 import type {RootState} from "../../stores/Store.ts";
 import {useMemo} from "react";
-import {changeLocalization, changeNamespace} from "../../stores/ActiveDisplaySlice.ts";
+import {changeBranch, changeLocalization, changeNamespace} from "../../stores/ActiveDisplaySlice.ts";
 import {MenuItem} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import {colors} from "../../const.ts";
-import LocalizationModal from "../../modal/LocalizationModal.tsx";
+import LocalizationModal from "../modal/LocalizationModal.tsx";
 import type {Localization} from "../project/Project.tsx";
 import ExpandableMenu from "./ExpandableMenu.tsx";
-import NamespaceModal from "../../modal/NamespaceModal.tsx";
-import BranchModal from "../../modal/BranchModal.tsx";
+import NamespaceModal from "../modal/NamespaceModal.tsx";
+import BranchModal from "../modal/BranchModal.tsx";
 
 type DrawerAppBarProps = {
   open: boolean;
@@ -43,6 +43,9 @@ export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppB
   }
   const handleNamespaceMenuClick = (namespace: string | null) => {
     dispatch(changeNamespace(namespace))
+  }
+  const handleBranchMenuClick = (branch: string | null) => {
+    dispatch(changeBranch(branch))
   }
 
 
@@ -115,7 +118,7 @@ export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppB
             {project?.localizations.map((localization) => (
               <MenuItem
                 key={localization.id}
-                selected={activeProject.currentNamespace === localization.id}
+                selected={activeProject.currentLocalization?.id === localization.id}
                 onClick={() => {
                   handleLanguageMenuClick(localization)
                 }}
@@ -124,23 +127,27 @@ export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppB
               </MenuItem>
             ))}
           </ExpandableMenu>
-          <ExpandableMenu
-            primary={"Branch"}
-            secondary={activeProject.currentBranch ?? "No branch selected"}
-            modal={<BranchModal/>}
-          >
-            {/*{project?.branches.map((branch) => (*/}
-            {/*  <MenuItem*/}
-            {/*    key={branch}*/}
-            {/*    selected={activeProject.currentBranch === branch}*/}
-            {/*    onClick={() => {*/}
-            {/*      handleNamespaceMenuClick(namespace.name)*/}
-            {/*    }}*/}
-            {/*  >*/}
-            {/*    {namespace.name}*/}
-            {/*  </MenuItem>*/}
-            {/*))}*/}
-          </ExpandableMenu>
+          {
+            activeProject.currentNamespace &&
+            <ExpandableMenu
+              primary={"Branch"}
+              secondary={activeProject.currentBranch ?? "No branch selected"}
+              modal={<BranchModal/>}
+            >
+              {project?.namespaces.find((n) => n.name === activeProject.currentNamespace)?.branches.map((branch) => (
+                <MenuItem
+                  key={branch}
+                  selected={activeProject.currentBranch === branch}
+                  onClick={() => {
+                    handleBranchMenuClick(branch)
+                  }}
+                >
+                  {branch}
+                </MenuItem>
+              ))}
+            </ExpandableMenu>
+          }
+
         </Box>
       </Toolbar>
     </MuiAppBar>

@@ -1,10 +1,10 @@
-import type {Localization} from "../components/project/Project.tsx";
+import type {Localization} from "../project/Project.tsx";
 import {Button, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
-import {colors, localizations} from "../const.ts";
+import {colors, localizations} from "../../const.ts";
 import {useState} from "react";
 import type {ModalBody} from "./MaterialModal.tsx";
 import {useDispatch} from "react-redux";
-import {addLocalization} from "../stores/ProjectSlice.ts";
+import {addLocalization} from "../../stores/ProjectSlice.ts";
 
 
 type LocalizationModalProps = {

@@ -3,7 +3,7 @@ import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import {type MouseEvent, type ReactElement, type ReactNode, useState} from "react";
 import {ListItemIcon, Menu, MenuItem} from "@mui/material";
-import MaterialModal from "../../modal/MaterialModal.tsx";
+import MaterialModal from "../modal/MaterialModal.tsx";
 import AddIcon from "@mui/icons-material/Add";
 
 type ExpandableMenuProps = {

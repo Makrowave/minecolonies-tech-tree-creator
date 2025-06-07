@@ -9,7 +9,7 @@ export interface ProjectType {
   id: string;
   name: string;
   namespaces: Namespace[];
-  localizations: Localization[];
+  localizations: FullLocalization[];
 }
 
 export interface Namespace {
@@ -22,6 +22,10 @@ export interface Localization {
   id: string;
   name: string;
 }
+
+export type FullLocalization = {
+  keys: {[key: string]: string | undefined}; //key dictionary
+} & Localization;
 
 export default function Project() {
 

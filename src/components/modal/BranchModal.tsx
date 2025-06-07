@@ -1,25 +1,31 @@
 import type {ModalBody} from "./MaterialModal.tsx";
-import Box from "@mui/material/Box";
 import {useMemo, useState} from "react";
-import {colors} from "../const.ts";
+import {colors} from "../../const.ts";
 import {Button, TextField} from "@mui/material";
-import {useSelector} from "react-redux";
-import type {RootState} from "../stores/Store.ts";
+import {useDispatch, useSelector} from "react-redux";
+import type {RootState} from "../../stores/Store.ts";
 import Typography from "@mui/material/Typography";
+import {addBranch} from "../../stores/ProjectSlice.ts";
 
 export default function BranchModal({closeModal}: ModalBody) {
   const [branch, setBranch] = useState<string>("");
   const project = useSelector((state: RootState) => state.project);
   const activeInfo = useSelector((state: RootState) => state.activeProject);
-  const branches = useMemo(() => project.namespaces.find((namespace) => namespace.name === activeInfo.currentNamespace)!.branches, [project, activeInfo]);
+  const namespace = useMemo(() => project.namespaces.find((n) => n.name === activeInfo.currentNamespace)!, [project, activeInfo]);
+  const branches = useMemo(() => namespace.branches, [namespace]);
 
+  const dispatch = useDispatch();
   const handleAddBranch = () => {
+    console.log(project.namespaces);
+    console.log(activeInfo.currentNamespace);
+    console.log(project.namespaces.find((n) => n.name === activeInfo.currentNamespace)!);
+    dispatch(addBranch({branch: branch, namespace: namespace.name}));
     if (closeModal) {
       closeModal();
     }
   }
   return (
-    <Box>
+    <>
       <TextField
         value={branch}
         onChange={(e) => {
@@ -46,6 +52,6 @@ export default function BranchModal({closeModal}: ModalBody) {
       >
         Add branch
       </Button>
-    </Box>
+    </>
   )
 }
