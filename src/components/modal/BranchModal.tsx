@@ -16,9 +16,6 @@ export default function BranchModal({closeModal}: ModalBody) {
 
   const dispatch = useDispatch();
   const handleAddBranch = () => {
-    console.log(project.namespaces);
-    console.log(activeInfo.currentNamespace);
-    console.log(project.namespaces.find((n) => n.name === activeInfo.currentNamespace)!);
     dispatch(addBranch({branch: branch, namespace: namespace.name}));
     if (closeModal) {
       closeModal();
@@ -34,20 +31,20 @@ export default function BranchModal({closeModal}: ModalBody) {
         fullWidth
         variant="outlined"
         label="Branch"
-        error={branch === "" || branches.includes(branch)}
+        error={branch === "" || branches.some((b) => b.name === branch)}
       />
       {
         branch === "" &&
         <Typography color={"error"}>Invalid branch name</Typography>
       }
       {
-        branches.includes(branch) &&
+        branches.some((b) => b.name === branch) &&
         <Typography color={"error"}>Branch already exists</Typography>
       }
       <Button
         variant={"contained"}
         onClick={handleAddBranch}
-        disabled={branch === "" || branches.includes(branch)}
+        disabled={branch === "" || branches.some((b) => b.name === branch)}
         sx={{bgcolor: colors.purple}}
       >
         Add branch

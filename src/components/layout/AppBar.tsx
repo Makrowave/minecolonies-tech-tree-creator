@@ -136,13 +136,13 @@ export default function AppBar({open, handleDrawerOpen, drawerWidth}: DrawerAppB
             >
               {project?.namespaces.find((n) => n.name === activeProject.currentNamespace)?.branches.map((branch) => (
                 <MenuItem
-                  key={branch}
-                  selected={activeProject.currentBranch === branch}
+                  key={branch.name}
+                  selected={activeProject.currentBranch === branch.name}
                   onClick={() => {
-                    handleBranchMenuClick(branch)
+                    handleBranchMenuClick(branch.name)
                   }}
                 >
-                  {branch}
+                  {branch.name}
                 </MenuItem>
               ))}
             </ExpandableMenu>

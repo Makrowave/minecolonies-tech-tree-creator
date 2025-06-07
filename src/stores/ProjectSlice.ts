@@ -42,7 +42,6 @@ const projectSlice = createSlice({
       const namespace = state.namespaces.find((s) => s.name === action.payload.namespace);
       if (namespace) {
         namespace.branches = namespace.branches.filter((s) => s !== action.payload.branch);
-        namespace.technologies = namespace.technologies.filter((s) => s.branch !== action.payload.branch);
       }
     },
     addLocalization: (state, action) => {
@@ -58,16 +57,29 @@ const projectSlice = createSlice({
       };
     },
     moveToNamespace: (state, action) => {
-      const fromNamespace = state.namespaces.find((namespace) => namespace.name === action.payload.from);
-      const toNamespace = state.namespaces.find((namespace) => namespace.name === action.payload.to);
+      const {
+        fromNamespaceName,
+        fromBranchName,
+        toNamespaceName,
+        toBranchName,
+        technologyName,
+      } = action.payload;
 
-      if (fromNamespace && toNamespace) {
-        const techIndex = fromNamespace.technologies.findIndex((tech) => tech.name === action.payload.technology);
+      const fromNamespace = state.namespaces.find(ns => ns.name === fromNamespaceName);
+      const toNamespace = state.namespaces.find(ns => ns.name === toNamespaceName);
 
-        if (techIndex !== -1) {
-          const [technology] = fromNamespace.technologies.splice(techIndex, 1);
-          toNamespace.technologies.push(technology);
-        }
+      if (!fromNamespace || !toNamespace) return;
+
+      const fromBranch = fromNamespace.branches.find(branch => branch.name === fromBranchName);
+      const toBranch = toNamespace.branches.find(branch => branch.name === toBranchName);
+
+      if (!fromBranch || !toBranch) return;
+
+      const techIndex = fromBranch.technologies.findIndex(tech => tech.name === technologyName);
+
+      if (techIndex !== -1) {
+        const [technology] = fromBranch.technologies.splice(techIndex, 1);
+        toBranch.technologies.push(technology);
       }
     }
   }

@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {Localization} from "../components/project/Project.tsx";
+import {localizations} from "../const.ts";
 
 interface ActiveDisplayState {
   currentProject: ProjectInfoBrief | null;
@@ -28,10 +29,10 @@ const activeDisplaySlice = createSlice({
   reducers: {
     changeProject: (_state, action) => {
       return ({
-        currentProject: action.payload,
-        currentNamespace: null,
-        currentLocalization: null,
-        currentBranch: null,
+        currentProject: {name: action.payload.name, id: action.payload.id} as ProjectInfoBrief,
+        currentNamespace: action.payload.namespaces[0]?.name ?? null,
+        currentLocalization: localizations[26],
+        currentBranch: action.payload.namespaces[0]?.branches[0]?.name ?? null,
         isSaved: true,
       })
     },

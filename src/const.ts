@@ -137,5 +137,6 @@ export const localizations: Localization[] = [
 ]
 
 export const colors = {
-  purple: "#a434eb"
+  purple: "#a434eb",
+  background: "#fffaee"
 }

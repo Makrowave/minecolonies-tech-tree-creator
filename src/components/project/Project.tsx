@@ -14,7 +14,11 @@ export interface ProjectType {
 
 export interface Namespace {
   name: string;
-  branches: string[];
+  branches: Branch[];
+}
+
+export interface Branch {
+  name: string;
   technologies: Technology[];
 }
 

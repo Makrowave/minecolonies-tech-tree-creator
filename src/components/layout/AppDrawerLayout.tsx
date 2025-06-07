@@ -14,10 +14,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import {ListItemIcon} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
-import Project from "../project/Project.tsx";
-import {useSelector} from "react-redux";
+import Project, {type ProjectType} from "../project/Project.tsx";
+import {useDispatch, useSelector} from "react-redux";
 import type {RootState} from "../../stores/Store.ts";
 import AppBar from "./AppBar.tsx";
+import {switchProject} from "../../stores/ProjectSlice.ts";
+import {changeProject} from "../../stores/ActiveDisplaySlice.ts";
 
 const drawerWidth = 240;
 
@@ -26,7 +28,7 @@ const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
 }>(({theme}) => ({
   flexGrow: 1,
   display: 'flex',
-  flex: 1,
+  flexDirection: 'column',
   marginTop: 64,
   padding: theme.spacing(3),
   transition: theme.transitions.create('margin', {
@@ -34,6 +36,9 @@ const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
     duration: theme.transitions.duration.leavingScreen,
   }),
   marginLeft: `-${drawerWidth}px`,
+  width: `calc(100% - 0px)`, // Full width when drawer is closed
+  height: `calc(100vh - 64px)`, // Full height minus app bar
+  overflowY: 'auto', // Allow vertical scrolling
   variants: [
     {
       props: ({open}) => open,
@@ -43,6 +48,7 @@ const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
           duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
+        width: `calc(100% - ${drawerWidth}px)`, // Adjust width when drawer is open
       },
     },
   ],
@@ -69,8 +75,14 @@ export default function AppDrawerLayout() {
     setOpen(false);
   };
 
+  const dispatch = useDispatch();
+  const handleDrawerClick = (project: ProjectType) => {
+    dispatch(switchProject(project))
+    dispatch(changeProject(project))
+  }
+
   return (
-    <Box sx={{display: 'flex', width: '100%', height: '100%'}}>
+    <Box sx={{display: 'flex', width: '100%', height: '100vh'}}>
       <CssBaseline/>
       <AppBar open={open} handleDrawerOpen={handleDrawerOpen} drawerWidth={drawerWidth}/>
       <Drawer
@@ -96,7 +108,7 @@ export default function AppDrawerLayout() {
         <List>
           {projects.map((project) => (
             <ListItem key={project.id} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => handleDrawerClick(project)}>
                 <ListItemText primary={project.name}/>
               </ListItemButton>
             </ListItem>

@@ -29,8 +29,15 @@ export default function ExpandableMenu({primary, secondary, modal, children}: Ex
     <>
       <List>
         <ListItemButton onClick={handleMenuOpen}>
-          <ListItemText primary={primary}
-                        secondary={secondary}/>
+          <ListItemText
+            primary={primary}
+            secondary={secondary}
+            slotProps={{
+              secondary: {
+                color: "white"
+              }
+            }}
+          />
         </ListItemButton>
       </List>
       <Menu
