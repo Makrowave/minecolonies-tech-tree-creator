@@ -5,6 +5,10 @@ import type {RootState} from "../../stores/Store.ts";
 import {useEffect, useMemo, useRef} from "react";
 import Technology, {type TechnologyType} from "./Technology.tsx";
 import {ArcherContainer, type ArcherContainerRef, ArcherElement} from "react-archer";
+import {IconButton} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import MaterialModal from "../modal/MaterialModal.tsx";
+import TechnologyModal from "../modal/TechnologyModal.tsx";
 
 const cols = [
   {
@@ -33,7 +37,7 @@ const cols = [
   },
 ]
 
-const techHeight = 150
+const techHeight = 250
 const techWidth = 400
 const spacing = 60
 
@@ -110,10 +114,30 @@ export default function TechnologyGrid() {
               sx={{
                 width: `${techWidth}px`,
                 mr: `${spacing}px`,
-                textAlign: 'center'
+                textAlign: 'center',
+                position: "relative"
               }}
             >
               <Typography variant="h6">{col.title}</Typography>
+              {
+                col.researchLevel === 1 &&
+                <MaterialModal
+                  button={(
+                  <IconButton
+                  sx={{
+                    position: "absolute",
+                    right: 0,
+                    top: 0
+                  }}
+                >
+                  <AddIcon />
+                </IconButton>
+                )}
+                  label={"Add technology"}
+                  >
+                  <TechnologyModal />
+                </MaterialModal>
+              }
             </Box>
           ))}
         </Box>
@@ -142,18 +166,21 @@ export default function TechnologyGrid() {
               }}
             >
               <ArcherElement
-                id={createLikeParentName(tech.value)}
+                id={tech.value.name}
                 relations={
                   tech.value.parentResearch ? [
                     {
                       targetId: tech.value.parentResearch,
                       targetAnchor: 'right',
                       sourceAnchor: 'left',
+                      style: {
+                        strokeColor: tech.parent?.value.exclusiveChildResearch ? "darkred" : "black"
+                      }
                     }
                   ] : []
                 }
               >
-                <Technology technology={tech.value}/>
+                <Technology technologyNode={tech} redrawArrows={archerRef.current?.refreshScreen}/>
               </ArcherElement>
             </Box>
           ))}
@@ -163,22 +190,15 @@ export default function TechnologyGrid() {
   )
 }
 
-type TechnologyNode = {
+export type TechnologyNode = {
   parent: TechnologyNode | null,
   children: TechnologyNode[],
   value: TechnologyType
   y: number
 };
 
-
-const createLikeParentName = (technology: TechnologyType) => {
-  const splitName = technology.name.split(".")
-  return `${technology.branch}/${splitName[splitName.length-2]}`
-}
-
-
 const createTree = (technologies: TechnologyType[], start: TechnologyNode) => {
-  const name = createLikeParentName(start.value)
+  const name = start.value.name
   let currentY = start.y
 
   for(const tech of technologies) {

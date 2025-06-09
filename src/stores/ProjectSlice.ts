@@ -66,37 +66,74 @@ const projectSlice = createSlice({
         console.warn(`Localization with ID ${localizationId} not found.`);
       }
     },
+    addTechnology: (state, action) => {
+      const {namespace, branch, technology, name, subtitle} = action.payload;
+      getBranch(state, branch, namespace)?.technologies.push(technology);
+      const enUs = state.localizations.find(loc => loc.id === "en_us");
+      if (enUs) {
+        enUs.keys[technology.name] = name
+        enUs.keys[technology.name.slice(0, -4) + "subtitle"] = subtitle
+      }
+    },
 
+    editTechnology: (state, action) => {
+      const {namespace, branch, technology, name, subtitle ,oldNameId} = action.payload;
+      const technologies = state.namespaces
+        .find((n) => n.name === namespace)!.branches
+        .find((b) => b.name === branch)!.technologies
 
-    moveToNamespace: (state, action) => {
-      const {
-        fromNamespaceName,
-        fromBranchName,
-        toNamespaceName,
-        toBranchName,
-        technologyName,
-      } = action.payload;
+      const index = technologies.findIndex(t => t.name === oldNameId);
+      if (index !== -1) {
+        technologies.splice(index, 1);
+        technologies.push(technology);
+      }
+      state.localizations.forEach(loc => {
+        delete loc.keys[oldNameId]
+        delete loc.keys[oldNameId.slice(0, -4) + "subtitle"]
+      })
+      const enUs = state.localizations.find(loc => loc.id === "en_us");
+      if (enUs) {
+        enUs.keys[technology.name] = name
+        enUs.keys[technology.name.slice(0, -4) + "subtitle"] = subtitle
+      }
+    },
 
-      const fromNamespace = state.namespaces.find(ns => ns.name === fromNamespaceName);
-      const toNamespace = state.namespaces.find(ns => ns.name === toNamespaceName);
+    deleteTechnology: (state, action) => {
+      const {namespace, branch, technology, childrenNames} = action.payload;
+      const technologies = getBranch(state, branch, namespace)?.technologies;
+      if(technologies && technologies.length > 0) {
 
-      if (!fromNamespace || !toNamespace) return;
+        const index = technologies.findIndex(t => t.name === technology.name);
+        if (index === -1) {
+          return;
+        }
 
-      const fromBranch = fromNamespace.branches.find(branch => branch.name === fromBranchName);
-      const toBranch = toNamespace.branches.find(branch => branch.name === toBranchName);
+        for(const name of childrenNames) {
+          const tech = technologies.find((tech) => tech.name === name)
+          if(tech) {
+            tech.parentResearch = technology.parentResearch;
+            tech.researchLevel = technology.parentResearch ? tech.researchLevel : 1;
+          }
+        }
 
-      if (!fromBranch || !toBranch) return;
-
-      const techIndex = fromBranch.technologies.findIndex(tech => tech.name === technologyName);
-
-      if (techIndex !== -1) {
-        const [technology] = fromBranch.technologies.splice(techIndex, 1);
-        toBranch.technologies.push(technology);
+        technologies.splice(index, 1);
+        state.localizations.forEach(loc => {
+          delete loc.keys[technology.name]
+          delete loc.keys[technology.name.slice(0, -4) + "subtitle"]
+        })
       }
     }
   }
 })
 
+const getNamespace = (state: ProjectType, namespace: string) => {
+  return state.namespaces.find((n) => n.name === namespace)
+}
+
+const getBranch = (state: ProjectType, branch: string, namespace: string) => {
+  return getNamespace(state, namespace)?.branches.find((b) => b.name === branch);
+}
+// "parentResearch": "minecolonies:civilian/reflective",
 export const {
   switchProject,
   addNamespace,
@@ -106,7 +143,9 @@ export const {
   deleteBranch,
   addLocalization,
   deleteLocalization,
-  moveToNamespace,
-  addLocalizationKey
+  addLocalizationKey,
+  addTechnology,
+  editTechnology,
+  deleteTechnology
 } = projectSlice.actions;
 export default projectSlice.reducer;
